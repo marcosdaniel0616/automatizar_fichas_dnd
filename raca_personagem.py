@@ -1,3 +1,5 @@
+import ficha
+
 racas = ['Anão', 'Elfo', 'Halfling', 'Humano', 'Draconato',
          'Gnomo', 'Meio-Elfo', 'Meio-Orc', 'Tiefling']
 
@@ -12,80 +14,94 @@ print()
 
 
 def anao():
-    print('Constituição: + 2')
-    print('Deslocamento: 7.5m')
-    print('Visão no escuro')
-    print('Resiliência anã')
-    print('Treinamento anão em combate')
-    print('Proficiência com ferramentas')
-    print('Especialização em rochas')
-    print('Idiomas: Comum e anão')
+    ficha.atributos['forca'] += 2
+    ficha.deslocamento += 7.5
+    ficha.proficiencias_classe.append('Visão no escuro')
+    ficha.proficiencias_classe.append('Resiliência anã')
+    ficha.proficiencias_classe.append('Treinamento anão em combate')
+    ficha.proficiencias_classe.append('Proficiência com ferramentas')
+    ficha.proficiencias_classe.append('Especialização em rochas')
+    ficha.idiomas.append('Comum')
+    ficha.idiomas.append('anão')
 
 
 def elfo():
-    print('Destreza: + 2')
-    print('Deslocamento: 9m')
-    print('Visão no escuro')
-    print('Sentidos aguçados')
-    print('Ancestral feérico')
-    print('Transe')
-    print('Idiomas: Comum e élfico')
+    ficha.atributos['destreza'] += 2
+    ficha.deslocamento += 9
+    ficha.proficiencias_classe.append('Visão no escuro')
+    ficha.proficiencias_classe.append('Sentidos aguçados')
+    ficha.proficiencias_classe.append('Ancestral feérico')
+    ficha.proficiencias_classe.append('Transe')
+    ficha.idiomas.append('Comum')
+    ficha.idiomas.append('Élfico')
 
 
 def halfling():
-    print('Destreza +2')
-    print('Deslocamento: 7.5m')
-    print('Sortudo')
-    print('Bravura')
-    print('Agilidade Halfling')
-    print('Idiomas: Comum e Halfling')
+    ficha.atributos['destreza'] += 2
+    ficha.deslocamento += 7.5
+    ficha.proficiencias_classe.append('Sortudo')
+    ficha.proficiencias_classe.append('Bravura')
+    ficha.proficiencias_classe.append('Agilidade Halfling')
+    ficha.idiomas.append('Comum')
+    ficha.idiomas.append('Halfling')
 
 
 def humano():
-    print('Todas as habilidades +1')
-    print('Deslocamento: 9m')
-    print('Idiomas: 1 comum e 1 a sua escolha')
+    for index, atributo in enumerate(ficha.atributos):
+        ficha.atributos[atributo] += 1
+    ficha.deslocamento += 9
+    ficha.idiomas.append('Comum')
+    ficha.idiomas.append('1 a sua escolha')
 
 
 def draconato():
-    print('+2 de força, +1 em carisma')
-    print('Deslocamento: 9m')
-    print('Idiomas: Comum e draconato')
+    ficha.atributos['forca'] += 2
+    ficha.atributos['carisma'] += 1
+    ficha.deslocamento += 9
+    ficha.idiomas.append('Comum')
+    ficha.idiomas.append('Draconato')
 
 
 def gnomo():
-    print('+2 inteligência')
-    print('Deslocamento: 7.5m')
-    print('Visão no escuro')
-    print('Esperteza gnômica')
-    print('Idiomas: Comum e gnômico')
+    ficha.atributos['inteligencia'] += 2
+    ficha.deslocamento += 7.5
+    ficha.proficiencias_classe.append('Visão no escuro')
+    ficha.proficiencias_classe.append('Esperteza gnômica')
+    ficha.idiomas.append('Comum')
+    ficha.idiomas.append('Gnômico')
 
 
 def meio_elfo():
-    print('Carisma +2, outros dois a sua escolha +1')
-    print('Deslocamento: 9m')
-    print('Visão no escuro')
-    print('Ancestral Feérico')
-    print('Versatilidade em perícia')
-    print('Idiomas: Comum e élfico e mais um idioma a sua escolha')
+    ficha.atributos['carisma'] += 2
+    print('Outros dois valores de habilidade a sua escolha aumentam em 1')
+    ficha.deslocamento += 9
+    ficha.proficiencias_classe.append('Visão no escuro')
+    ficha.proficiencias_classe.append('Ancestral Feérico')
+    ficha.proficiencias_classe.append('Versatilidade em perícia')
+    ficha.idiomas.append('Comum')
+    ficha.idiomas.append('Élfico')
+    ficha.idiomas.append('Outro idioma a sua escolha')
 
 
 def meio_orc():
-    print('Força + 2, + 1 constituição')
-    print('Deslocamento: 9m')
-    print('Visão no escuro')
-    print('Ameaçador')
-    print('Resistência implacável')
-    print('Ataques selvagens')
+    ficha.atributos['forca'] += 2
+    ficha.atributos['constituicao'] += 1
+    ficha.deslocamento += 9
+    ficha.proficiencias_classe('Visão no escuro')
+    ficha.proficiencias_classe('Ameaçador')
+    ficha.proficiencias_classe('Resistência implacável')
+    ficha.proficiencias_classe('Ataques selvagens')
 
 
 def tiefling():
-    print('Idiomas: Comum e infernal')
-    print('+1 inteligência, +2 carisma')
-    print('9 deslocamento')
-    print('Visão no escuro')
-    print('Resistência infernal')
-    print('Legado infernal')
+    ficha.atributos['inteligencia'] += 1
+    ficha.atributos['carisma'] += 2
+    ficha.deslocamento += 9
+    ficha.proficiencias_classe.append('Visão no escuro')
+    ficha.proficiencias_classe.append('Resistência Infernal')
+    ficha.proficiencias_classe.append('Legado infernal')
+    ficha.idiomas.append('Comum')
+    ficha.idiomas.append('Infernal')
 
 
 if raca_escolhida == 0:
@@ -114,3 +130,8 @@ elif raca_escolhida == 7:
 
 elif raca_escolhida == 8:
     tiefling()
+
+print(f'Atributos: {ficha.atributos}')
+print(f'Deslocamento: {ficha.deslocamento}m')
+print(f'Proficiencias da classe: {ficha.proficiencias_classe}')
+print(f'Idiomas: {ficha.idiomas}')
