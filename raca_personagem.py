@@ -3,8 +3,8 @@ import ficha
 racas = ['Anão', 'Elfo', 'Halfling', 'Humano', 'Draconato',
          'Gnomo', 'Meio-Elfo', 'Meio-Orc', 'Tiefling']
 
-for indice, raca in enumerate(racas):
-    print(f'[{indice}]: {raca}')
+raca = [(indice, raca) for indice, raca in enumerate(racas)]
+print([raca for raca in raca])
 
 print()
 
@@ -249,9 +249,10 @@ elif raca_escolhida == 8:
     tiefling()
 
 else:
-    print('O valor informado foi incorreto, informe a raça de acordo com o índice!')
+    print('O valor informado foi incorreto, informe a raça pelo seu índice!')
     exit()
 
+print()
 print(f'Atributos: {ficha.atributos}')
 print(f'Deslocamento: {ficha.deslocamento}m')
 print(f'Proficiencias da classe: {ficha.proficiencias_classe}')
